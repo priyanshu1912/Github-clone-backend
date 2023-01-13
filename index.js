@@ -4,7 +4,7 @@ import cors from "cors";
 import authRoutes from "./routes/Auth.js";
 import repoRoutes from "./routes/Repos.js";
 
-const PORT = process.env.PORT || 8000;
+const PORT = 8000;
 
 const app = express();
 app.use(cors());
