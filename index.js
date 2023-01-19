@@ -10,7 +10,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-//routes   
+//routes
 app.use("/auth", authRoutes);
 app.use("/repos", repoRoutes);
 
@@ -18,4 +18,8 @@ app.get("/", (req, res) => {
   res.send("Server running successfully!");
 });
 
-app.listen(PORT, () => console.log(`Running on PORT ${PORT}`));
+if (process.env.NODE_ENV !== "test") {
+  app.listen(PORT, () => console.log(`Running on PORT ${PORT}`));
+}
+
+export default app;

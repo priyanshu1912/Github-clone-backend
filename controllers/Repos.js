@@ -5,8 +5,10 @@ export const getRepos = async (req, res) => {
     const response = await axios.get(
       `https://api.github.com/users/${req.query.username}/repos`
     );
-    if (response) {
+    if (response && response.data.length !== 0) {
       res.status(response.status).json({ data: response.data });
+    } else {
+      res.status(404).json({ messsage: "Not Found" });
     }
   } catch (error) {
     res
